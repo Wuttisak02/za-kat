@@ -13,8 +13,6 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -29,9 +27,6 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import Chart from '../components/Chart';
-import RecentDeposits from '../components/RecentDeposits';
-import RecentDoneeApplication from '../components/RecentDoneeApplications';
 
 const drawerWidth: number = 240;
 
@@ -184,7 +179,7 @@ export default function Root() {
                             </ListItemIcon>
                             <ListItemText primary="My Account" />
                         </ListItemButton>
-                        <ListItemButton>
+                        <ListItemButton onClick={() => navigateTo('customerInfo')}>
                             <ListItemIcon>
                                 <PeopleIcon />
                             </ListItemIcon>
@@ -240,46 +235,9 @@ export default function Root() {
                 >
                     <Toolbar />
                     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                        {location.pathname === "/" && (
-                            <Grid container spacing={3}>
-                                {/* Chart */}
-                                <Grid item xs={12} md={8} lg={9}>
-                                    <Paper
-                                        sx={{
-                                            p: 2,
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            height: 240,
-                                        }}
-                                    >
-                                        <Chart />
-                                    </Paper>
-                                </Grid>
-                                {/* Recent Deposits */}
-                                <Grid item xs={12} md={4} lg={3}>
-                                    <Paper
-                                        sx={{
-                                            p: 2,
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            height: 240,
-                                        }}
-                                    >
-                                        <RecentDeposits />
-                                    </Paper>
-                                </Grid>
-                                {/* Recent Orders */}
-                                <Grid item xs={12}>
-                                    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                        <RecentDoneeApplication />
-                                    </Paper>
-                                </Grid>
-                            </Grid>
-                        )}
                         <Outlet />
                         <Copyright sx={{ pt: 4 }} />
                     </Container>
-
                 </Box>
             </Box>
         </ThemeProvider>
