@@ -7,14 +7,14 @@ import {
 import { Fragment } from 'react';
 import Root from "./routes/Root";
 import DashboardPage from "./views/DashboardPage";
-import AccountInfoPage from "./views/AccountInfoPage"
+import DoneeManagementPage from "./views/DoneeManagementPage"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Fragment>
       <Route path='/' element={<Root />}>
         <Route index path='/' element={<DashboardPage />}></Route>
-        <Route path='/accountInfo' element={<AccountInfoPage />}></Route>
+        <Route path='/doneeManagement' element={<DoneeManagementPage />}></Route>
       </Route>
     </Fragment>
   )

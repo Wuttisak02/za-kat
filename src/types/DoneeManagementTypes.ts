@@ -1,4 +1,4 @@
-export interface AccountInfoResponse {
+export interface DoneeInfoResponse {
     userId: number,
     userName: String,
     email: String,

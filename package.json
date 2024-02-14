@@ -27,6 +27,7 @@
     "@types/react-dom": "^18.2.18",
     "axios": "^1.6.5",
     "date-fns": "^2.30.0",
+    "focus-trap-react": "^10.2.3",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",

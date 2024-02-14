@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import  localforage from "localforage"
 import  dashboardInfoReducer  from './slices/dashboard/DashboardInfoSlice'
-import  accountInfoReducer  from './slices/account/AccountInfoSlice'
+import  doneeOnboardingReducer  from './slices/donee/DoneeOnboardingSlice'
 
 import {
   FLUSH, PAUSE,  PERSIST, PURGE, REGISTER, REHYDRATE,
@@ -14,8 +14,8 @@ const dashboardInfoPersistConfig = {
   storage: localforage
 };
 
-const accountInfoPersistConfig = {
-  key: "accountInfo",
+const doneeOnboardingPersistConfig = {
+  key: "doneeOnboarding",
   storage: localforage
 };
 
@@ -24,15 +24,15 @@ export const persistedDashboardInfoReducer = persistReducer (
   dashboardInfoReducer
 );
 
-export const persistedAccountInfoReducer = persistReducer (
-  accountInfoPersistConfig,
-  accountInfoReducer
+export const persistedDoneeOnboardingReducerReducer = persistReducer (
+  doneeOnboardingPersistConfig,
+  doneeOnboardingReducer
 );
 
 export const rootStore = configureStore({
   reducer: {
     dashboardInfo: persistedDashboardInfoReducer,
-    accountInfo: persistedAccountInfoReducer
+    accountInfo: persistedDoneeOnboardingReducerReducer
   },
   middleware: (getDefaultMiddleware) => 
     getDefaultMiddleware({

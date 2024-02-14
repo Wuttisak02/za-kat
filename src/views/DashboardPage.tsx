@@ -6,6 +6,7 @@ import Paper from '@mui/material/Paper';
 import Chart from '../components/Chart';
 import RecentDeposits from '../components/RecentDeposits';
 import RecentDoneeApplication from '../components/RecentDoneeApplications';
+import PageTitle from "../components/PageTitle";
 
 export default function DashboardPage() {
     const dispatch = useAppDispatch();
@@ -13,6 +14,7 @@ export default function DashboardPage() {
 
     return (
         <>
+            <PageTitle>Dashboard</PageTitle>
             <Grid container spacing={3}>
                 {/* Chart */}
                 <Grid item xs={12} md={8} lg={9}>
