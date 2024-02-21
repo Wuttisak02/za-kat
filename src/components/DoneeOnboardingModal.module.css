@@ -1,0 +1,87 @@
+.modalContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    /*background-color: var(--background-paper-color);*/
+    background: #111418 0% 0% no-repeat padding-box;
+    padding: 4px 4px 4px 4px;   
+    box-shadow: 0px 0px 15px #40404080;
+    border: 1px solid #7070701A;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.modalBar {
+    height: 7px;
+    background: #4448BA 0% 0% no-repeat padding-box;
+    border-radius: 10px 10px 0px 0px;
+    opacity: 1;
+}
+
+.formContainer {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.formLeft {
+    flex: 0.1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.formRight {
+    flex: 0.9;
+}
+
+.formBody {
+    padding: 13px;
+    height: 400px;
+    border: 1px solid #70707080;      
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.formFooter {
+    display: flex;
+    padding-top: 10px;
+}
+
+.formFooter div {
+    flex: 1;
+}
+
+.formFooter button {
+    margin-left: 5px;
+    text-transform: none;
+}
+
+.error {
+    color: red;
+}
+
+.checkedCircle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #4FCE63 0% 0% no-repeat padding-box;
+    text-align: center;
+}
+
+.pendingCircle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #595959 0% 0% no-repeat padding-box;
+    text-align: center;
+}
+
+.line {
+    width: 3px;
+    height: 20px;
+    background: #333333 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
