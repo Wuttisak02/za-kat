@@ -55,9 +55,20 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
         }
     };
 
+    const handleCloseModal = () => {
+        // reset all forms
+        form1_1.resetForm();
+
+        // reset state
+        setCurrentStep("1.1");
+
+        // close modal dialog
+        props.closeModal();
+    };
+
     return (
         <>
-            <Modal open={props.isOpen} onClose={props.closeModal} aria-labelledby="modal-title" aria-describedby="modal-description">
+            <Modal open={props.isOpen} onClose={handleCloseModal} aria-labelledby="modal-title" aria-describedby="modal-description">
                 <Box className={styles.modalContainer}>
                     <div className={styles.modalBar}></div>
                     <h2 id="modal-title" style={{ textAlign: 'center' }}>Create New Donee</h2>
@@ -127,7 +138,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                             </div>
                             <div className={styles.formFooter}>
                                 <div>
-                                    <Button variant="outlined" onClick={props.closeModal}>Cancel</Button>
+                                    <Button variant="outlined" onClick={handleCloseModal}>Cancel</Button>
                                 </div>
                                 <div style={{ textAlign: "right" }}>
                                     <Button variant="outlined" onClick={handleBackClick}>Back</Button>
