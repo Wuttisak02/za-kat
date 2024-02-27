@@ -232,7 +232,9 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                     <p id="modal-description" style={{ textAlign: "center" }}>
                       Detail & Description
                     </p>
-                    <FormControl fullWidth></FormControl>
+                    <FormControl fullWidth>
+                      <Step9 />
+                    </FormControl>
                   </>
                 )}
               </div>
