@@ -11,11 +11,16 @@ import { useFormik } from "formik";
 import { useRef } from "react";
 import * as Yup from "yup";
 import styles from "./DoneeOnboardingModal.module.css";
-import Step5 from "./Step5";
-import Step6 from "./Step6";
-import Step7 from "./Step7";
+
 import Step8 from "./Step8";
 import Step9 from "./Step9";
+import DoneeOnboardingStep5_1 from "./DoneeOnboardingStep5_1";
+import DoneeOnboardingStep5_2 from "./DoneeOnboardingStep5_2";
+import DoneeOnboardingStep5_3 from "./DoneeOnboardingStep5_3";
+import DoneeOnboardingStep5_4 from "./DoneeOnboardingStep5_4";
+import DoneeOnboardingStep5_5 from "./DoneeOnboardingStep5_5";
+import DoneeOnboardingStep6 from "./DoneeOnboardingStep6";
+import DoneeOnboardingStep7 from "./DoneeOnboardingStep7";
 
 interface DoneeOnboardingModalProps {
   isOpen: boolean;
@@ -26,6 +31,17 @@ interface DoneeOnboardingModalProps {
 export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
   const [currentStep, setCurrentStep] = useState("1.1");
   const form1_1Ref = useRef<HTMLFormElement>(null);
+  const form2_1Ref = useRef<HTMLFormElement>(null);
+  const form2_2Ref = useRef<HTMLFormElement>(null);
+  const form3_1Ref = useRef<HTMLFormElement>(null);
+  const form4_1Ref = useRef<HTMLFormElement>(null);
+  const form5_1Ref = useRef<HTMLFormElement>(null);
+  const form5_2Ref = useRef<HTMLFormElement>(null);
+  const form5_3Ref = useRef<HTMLFormElement>(null);
+  const form5_4Ref = useRef<HTMLFormElement>(null);
+  const form5_5Ref = useRef<HTMLFormElement>(null);
+  const form6_1Ref = useRef<HTMLFormElement>(null);
+  const form7_1Ref = useRef<HTMLFormElement>(null);
 
   const form1_1 = useFormik({
     initialValues: {
@@ -45,23 +61,185 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
     },
   });
 
+  const form2_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("2.2");
+    },
+  });
+
+  const form2_2 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("3.1");
+    },
+  });
+
+  const form3_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("4.1");
+    },
+  });
+
+  const form4_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("5.1");
+    },
+  });
+
+  const form5_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("5.2");
+    },
+  });
+
+  const form5_2 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("5.3");
+    },
+  });
+
+  const form5_3 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("5.4");
+    },
+  });
+
+  const form5_4 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("5.5");
+    },
+  });
+
+  const form5_5 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("6.1");
+    },
+  });
+
+  const form6_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("7.1");
+    },
+  });
+
+  const form7_1 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
+      setCurrentStep("8.1");
+    },
+  });
+
   const handleNextClick = () => {
     if (currentStep === "1.1") {
       form1_1.handleSubmit();
     } else if (currentStep === "2.1") {
-      setCurrentStep("3.1");
+      form2_1.handleSubmit();
+    } else if (currentStep === "2.2") {
+      form2_2.handleSubmit();
     } else if (currentStep === "3.1") {
-      setCurrentStep("4.1");
+      form3_1.handleSubmit();
     } else if (currentStep === "4.1") {
-      setCurrentStep("5.1");
+      form4_1.handleSubmit();
     } else if (currentStep === "5.1") {
-      setCurrentStep("6.1");
+      form5_1.handleSubmit();
+    } else if (currentStep === "5.2") {
+      form5_2.handleSubmit();
+    } else if (currentStep === "5.3") {
+      form5_3.handleSubmit();
+    } else if (currentStep === "5.4") {
+      form5_4.handleSubmit();
+    } else if (currentStep === "5.5") {
+      form5_5.handleSubmit();
     } else if (currentStep === "6.1") {
-      setCurrentStep("7.1");
+      form6_1.handleSubmit();
     } else if (currentStep === "7.1") {
-      setCurrentStep("8.1");
-    } else if (currentStep === "8.1") {
-      setCurrentStep("9.1");
+      form7_1.handleSubmit();
     }
   };
 
@@ -144,75 +322,179 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
 
                 {currentStep === "2.1" && (
                   <>
-                    <p id="modal-description" style={{ textAlign: "center" }}>
-                      Personal Information
-                    </p>
-                    <FormControl fullWidth>
-                      <InputLabel id="prefix-label">
-                        Select an option
-                      </InputLabel>
-                      <Select labelId="prefix-label" id="prefix">
-                        <MenuItem value={"Mr."}>Mr.</MenuItem>
-                        <MenuItem value={"Mrs."}>Mrs.</MenuItem>
-                        <MenuItem value={"Miss"}>Miss</MenuItem>
-                      </Select>
-                    </FormControl>
+                    <form ref={form2_1Ref} onSubmit={form2_1.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Personal Information
+                      </p>
+                      <FormControl fullWidth>
+                        <InputLabel id="prefix-label">
+                          Select an option
+                        </InputLabel>
+                        <Select labelId="prefix-label" id="prefix">
+                          <MenuItem value={"Mr."}>Mr.</MenuItem>
+                          <MenuItem value={"Mrs."}>Mrs.</MenuItem>
+                          <MenuItem value={"Miss"}>Miss</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </form>
+                  </>
+                )}
+
+                {currentStep === "2.2" && (
+                  <>
+                    <form ref={form2_2Ref} onSubmit={form2_2.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Personal Information 2
+                      </p>
+                      <FormControl fullWidth>
+                        <InputLabel id="prefix-label">
+                          Select an option
+                        </InputLabel>
+                        <Select labelId="prefix-label" id="prefix">
+                          <MenuItem value={"Mr."}>Mr.</MenuItem>
+                          <MenuItem value={"Mrs."}>Mrs.</MenuItem>
+                          <MenuItem value={"Miss"}>Miss</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </form>
                   </>
                 )}
 
                 {currentStep === "3.1" && (
                   <>
-                    <p id="modal-description" style={{ textAlign: "center" }}>
-                      Step 3
-                    </p>
-                    <FormControl fullWidth></FormControl>
+                    <form ref={form3_1Ref} onSubmit={form3_1.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Step 3
+                      </p>
+                      <FormControl fullWidth></FormControl>
+                    </form>
                   </>
                 )}
 
                 {currentStep === "4.1" && (
                   <>
-                    <p id="modal-description" style={{ textAlign: "center" }}>
-                      Step 4
-                    </p>
-                    <FormControl fullWidth></FormControl>
+                    <form ref={form4_1Ref} onSubmit={form4_1.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Step 4
+                      </p>
+                      <FormControl fullWidth></FormControl>
+                    </form>
                   </>
                 )}
 
                 <>
-                  <FormControl fullWidth>
-                    {currentStep === "5.1" && (
-                      <>
+                  {currentStep === "5.1" && (
+                    <>
+                      <form ref={form5_1Ref} onSubmit={form5_1.handleSubmit}>
                         <p
                           id="modal-description"
                           style={{ textAlign: "center" }}
                         >
                           Career & Financial
                         </p>
-                        <Step5 />
-                      </>
-                    )}
-                  </FormControl>
+                        <FormControl fullWidth>
+                          <DoneeOnboardingStep5_1 />
+                        </FormControl>
+                      </form>
+                    </>
+                  )}
+                </>
+
+                <>
+                  {currentStep === "5.2" && (
+                    <>
+                      <form ref={form5_2Ref} onSubmit={form5_2.handleSubmit}>
+                        <p
+                          id="modal-description"
+                          style={{ textAlign: "center" }}
+                        >
+                          Career & Financial 2
+                        </p>
+                        <FormControl fullWidth>
+                          <DoneeOnboardingStep5_2 />
+                        </FormControl>
+                      </form>
+                    </>
+                  )}
+                </>
+
+                <>
+                  {currentStep === "5.3" && (
+                    <>
+                      <form ref={form5_3Ref} onSubmit={form5_3.handleSubmit}>
+                        <p
+                          id="modal-description"
+                          style={{ textAlign: "center" }}
+                        >
+                          Career & Financial 3
+                        </p>
+                        <FormControl fullWidth>
+                          <DoneeOnboardingStep5_3 />
+                        </FormControl>
+                      </form>
+                    </>
+                  )}
+                </>
+
+                <>
+                  {currentStep === "5.4" && (
+                    <>
+                      <form ref={form5_4Ref} onSubmit={form5_4.handleSubmit}>
+                        <p
+                          id="modal-description"
+                          style={{ textAlign: "center" }}
+                        >
+                          Career & Financial 4
+                        </p>
+                        <FormControl fullWidth>
+                          <DoneeOnboardingStep5_4 />
+                        </FormControl>
+                      </form>
+                    </>
+                  )}
+                </>
+
+                <>
+                  {currentStep === "5.5" && (
+                    <>
+                      <form ref={form5_5Ref} onSubmit={form5_5.handleSubmit}>
+                        <p
+                          id="modal-description"
+                          style={{ textAlign: "center" }}
+                        >
+                          Career & Financial 5
+                        </p>
+                        <FormControl fullWidth>
+                          <DoneeOnboardingStep5_5 />
+                        </FormControl>
+                      </form>
+                    </>
+                  )}
                 </>
 
                 {currentStep === "6.1" && (
                   <>
-                    <p id="modal-description" style={{ textAlign: "center" }}>
-                      Contact Person
-                    </p>
-                    <FormControl fullWidth>
-                      <Step6 />
-                    </FormControl>
+                    <form ref={form6_1Ref} onSubmit={form6_1.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Contact Person
+                      </p>
+                      <FormControl fullWidth>
+                        <DoneeOnboardingStep6 />
+                      </FormControl>
+                    </form>
                   </>
                 )}
 
                 {currentStep === "7.1" && (
                   <>
-                    <p id="modal-description" style={{ textAlign: "center" }}>
-                      Career & Financial
-                    </p>
-                    <FormControl fullWidth>
-                      <Step7 />
-                    </FormControl>
+                    <form ref={form7_1Ref} onSubmit={form7_1.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Career & Financial
+                      </p>
+                      <FormControl fullWidth>
+                        <DoneeOnboardingStep7 />
+                      </FormControl>
+                    </form>
                   </>
                 )}
 
