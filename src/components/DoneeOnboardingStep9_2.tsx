@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { styled } from "@mui/material/styles";
+import DoneeOnboardingStep7_2 from "./DoneeOnboardingStep7_2";
 
 const BorderedTextField = styled(TextField)({
   "& .MuiInputBase-root": {
@@ -52,12 +53,7 @@ export default function FormPropsTextFields() {
       </div>
 
       <div>
-        <BorderedTextField
-          disabled
-          id="outlined-disabled"
-          defaultValue="Upload File"
-          InputProps={{ style: { fontSize: "10px" } }}
-        />
+        <DoneeOnboardingStep7_2 />
       </div>
 
       <div>
@@ -68,7 +64,7 @@ export default function FormPropsTextFields() {
             fontSize: "10px",
           }}
         >
-          Additional Photo (Limit 5 filles)
+          Additional Photo (Limit 5 files)
         </span>
         <TextField
           disabled
@@ -81,12 +77,7 @@ export default function FormPropsTextFields() {
       </div>
 
       <div>
-        <BorderedTextField
-          disabled
-          id="outlined-disabled"
-          defaultValue="Upload File"
-          InputProps={{ style: { fontSize: "10px" } }}
-        />
+        <DoneeOnboardingStep7_2 />
       </div>
     </Box>
   );

@@ -1,4 +1,3 @@
-// ที่ส่วนบนของโค้ด
 import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -17,7 +16,8 @@ import DoneeOnboardingStep5_3 from "./DoneeOnboardingStep5_3";
 import DoneeOnboardingStep5_4 from "./DoneeOnboardingStep5_4";
 import DoneeOnboardingStep5_5 from "./DoneeOnboardingStep5_5";
 import DoneeOnboardingStep6 from "./DoneeOnboardingStep6";
-import DoneeOnboardingStep7 from "./DoneeOnboardingStep7";
+import DoneeOnboardingStep7_1 from "./DoneeOnboardingStep7_1";
+import DoneeOnboardingStep7_2 from "./DoneeOnboardingStep7_2";
 import DoneeOnboardingStep8_1 from "./DoneeOnboardingStep8_1";
 import DoneeOnboardingStep8_2 from "./DoneeOnboardingStep8_2";
 import DoneeOnboardingStep9_1 from "./DoneeOnboardingStep9_1";
@@ -33,6 +33,7 @@ interface DoneeOnboardingModalProps {
 
 export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
   const [currentStep, setCurrentStep] = useState("1.1");
+
   const form1_1Ref = useRef<HTMLFormElement>(null);
   const form2_1Ref = useRef<HTMLFormElement>(null);
   const form2_2Ref = useRef<HTMLFormElement>(null);
@@ -45,6 +46,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
   const form5_5Ref = useRef<HTMLFormElement>(null);
   const form6_1Ref = useRef<HTMLFormElement>(null);
   const form7_1Ref = useRef<HTMLFormElement>(null);
+  const form7_2Ref = useRef<HTMLFormElement>(null);
   const form8_1Ref = useRef<HTMLFormElement>(null);
   const form8_2Ref = useRef<HTMLFormElement>(null);
   const form9_1Ref = useRef<HTMLFormElement>(null);
@@ -220,6 +222,20 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
       console.log(JSON.stringify(values, null, 2));
 
       //move to next step
+      setCurrentStep("7.2");
+    },
+  });
+
+  const form7_2 = useFormik({
+    initialValues: {},
+
+    validationSchema: Yup.object({}),
+
+    onSubmit: (values) => {
+      // Save data to redux
+      console.log(JSON.stringify(values, null, 2));
+
+      //move to next step
       setCurrentStep("8.1");
     },
   });
@@ -333,6 +349,8 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
       form6_1.handleSubmit();
     } else if (currentStep === "7.1") {
       form7_1.handleSubmit();
+    } else if (currentStep === "7.2") {
+      form7_2.handleSubmit();
     } else if (currentStep === "8.1") {
       form8_1.handleSubmit();
     } else if (currentStep === "8.2") {
@@ -349,11 +367,66 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
   };
 
   const handleBackClick = () => {
-    if (currentStep !== "1.1") {
-      const currentStepNumber = parseFloat(currentStep);
-      const previousStep = (currentStepNumber - 1).toFixed(1);
-      setCurrentStep(previousStep);
+    let previousStep = "";
+    switch (currentStep) {
+      case "2.1":
+        previousStep = "1.1";
+        break;
+      case "2.2":
+        previousStep = "2.1";
+        break;
+      case "3.1":
+        previousStep = "2.2";
+        break;
+      case "4.1":
+        previousStep = "3.1";
+        break;
+      case "5.1":
+        previousStep = "4.1";
+        break;
+      case "5.2":
+        previousStep = "5.1";
+        break;
+      case "5.3":
+        previousStep = "5.2";
+        break;
+      case "5.4":
+        previousStep = "5.3";
+        break;
+      case "5.5":
+        previousStep = "5.4";
+        break;
+      case "6.1":
+        previousStep = "5.5";
+        break;
+      case "7.1":
+        previousStep = "6.1";
+        break;
+      case "7.2":
+        previousStep = "7.1";
+        break;
+      case "8.1":
+        previousStep = "7.2";
+        break;
+      case "8.2":
+        previousStep = "8.1";
+        break;
+      case "9.1":
+        previousStep = "8.2";
+        break;
+      case "9.2":
+        previousStep = "9.1";
+        break;
+      case "9.3":
+        previousStep = "9.2";
+        break;
+      case "9.4":
+        previousStep = "9.3";
+        break;
+      default:
+        break;
     }
+    setCurrentStep(previousStep);
   };
 
   const handleCloseModal = () => {
@@ -594,10 +667,23 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form7_1Ref} onSubmit={form7_1.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Career & Financial
+                        Document
                       </p>
                       <FormControl fullWidth>
-                        <DoneeOnboardingStep7 />
+                        <DoneeOnboardingStep7_1 />
+                      </FormControl>
+                    </form>
+                  </>
+                )}
+
+                {currentStep === "7.2" && (
+                  <>
+                    <form ref={form7_2Ref} onSubmit={form7_2.handleSubmit}>
+                      <p id="modal-description" style={{ textAlign: "center" }}>
+                        Document 123
+                      </p>
+                      <FormControl fullWidth>
+                        <DoneeOnboardingStep7_2 />
                       </FormControl>
                     </form>
                   </>
@@ -607,7 +693,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form8_1Ref} onSubmit={form8_1.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Documents
+                        Detail & description
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep8_1 />
@@ -620,7 +706,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form8_2Ref} onSubmit={form8_2.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Documents 2
+                        Detail & description 2
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep8_2 />
@@ -633,7 +719,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form9_1Ref} onSubmit={form9_1.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Detail & Description
+                        Confirm Submission
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep9_1 />
@@ -646,7 +732,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form9_2Ref} onSubmit={form9_2.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Detail & Description 2
+                        Confirm Submission 2
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep9_2 />
@@ -659,7 +745,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form9_3Ref} onSubmit={form9_2.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Detail & Description 3
+                        Confirm Submission 3
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep9_3 />
@@ -672,7 +758,7 @@ export default function DoneeOnboardingModal(props: DoneeOnboardingModalProps) {
                   <>
                     <form ref={form9_4Ref} onSubmit={form9_4.handleSubmit}>
                       <p id="modal-description" style={{ textAlign: "center" }}>
-                        Confirm Sunmission
+                        Confirm Sunmission 4
                       </p>
                       <FormControl fullWidth>
                         <DoneeOnboardingStep9_4 />
